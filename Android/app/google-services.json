@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "558818920313",
+    "project_id": "firebase-diabeto"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:558818920313:android:f123490a76a526f0",
+        "android_client_info": {
+          "package_name": "com.amaro.diabeto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "558818920313-srj03qig0ds4bt06h967snfd4ehi3euu.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "558818920313-cfvhsucnceahqqnjcki74aet4gsbb1tg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.amaro.diabeto",
+            "certificate_hash": "8014f2126cd5a1fb5fc643df38f033c01450baf8"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBoY4TLArRomUL4Yof2-RUkytXYdZmMNk8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
