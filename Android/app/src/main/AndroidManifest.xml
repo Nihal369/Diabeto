@@ -22,7 +22,8 @@
         </activity>
         <activity android:name=".UserDetails" />
         <activity android:name=".PremiumMenu" />
-        <activity android:name=".Predictor"></activity>
+        <activity android:name=".Predictor" />
+        <activity android:name=".WebViewActivity"></activity>
     </application>
 
 </manifest>

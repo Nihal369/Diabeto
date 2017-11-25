@@ -4,6 +4,62 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorSecondary"
     tools:context="com.amaro.diabeto.PremiumMenu">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/titleCard"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="@color/colorPrimary">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DIABETICS CONTROL PROGRAMS"
+            android:textSize="20sp"
+            android:layout_gravity="center"/>
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/prolonCard"
+        android:layout_width="match_parent"
+        android:layout_height="182dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleCard"
+        android:onClick="launchWebView">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/prolon"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#424242"
+            android:text="Prolon Five day Fasting Diet"
+            android:layout_gravity="bottom"
+            android:fontFamily="monospace"
+            android:textStyle="bold"
+            android:layout_margin="8dp"
+            android:textSize="15sp"/>
+
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+
+        android:text="Sponsored"
+        android:textColor="#868686"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/prolonCard" />
 
 </android.support.constraint.ConstraintLayout>
