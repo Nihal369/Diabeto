@@ -61,11 +61,11 @@ classifier.fit(xtrain,ytrain,batch_size=1,epochs=500)
 
 #Evaluvating the model on test set
 ypred=classifier.predict(xtest)
-ypred=(ypred>0.5)
+'''ypred=(ypred>0.5)
 
 #Confusion matrix
 from sklearn.metrics import confusion_matrix
-cm=confusion_matrix(ytest,ypred)
+cm=confusion_matrix(ytest,ypred)'''
 
 #Saving the classifier
 from keras.models import load_model
