@@ -29,6 +29,12 @@ scaler=StandardScaler()
 xtrain=scaler.fit_transform(xtrain)
 xtest=scaler.fit_transform(xtest)
 
+#Saving the scaler
+from sklearn.externals import joblib
+scaler_filename = "scaler.save"
+joblib.dump(scaler, scaler_filename) 
+
+
 #Creating the model
 from keras.models import Sequential
 from keras.layers import Dense
