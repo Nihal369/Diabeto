@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
+import android.util.Log;
 import android.view.View;
 
 import com.android.volley.Request;
@@ -38,13 +39,14 @@ public class Predictor extends AppCompatActivity {
         String url;
 
 
-        url = "http://www.httpbin.org/post";
+        url = "20.20.3.215:5000/predict";
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
                 {
                     @Override
                     public void onResponse(String response) {
                         // response
+                        Log.i("NIHAL",response);
 
                     }
                 },
