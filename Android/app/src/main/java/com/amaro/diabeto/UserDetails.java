@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class UserDetails extends AppCompatActivity {
 
-    TextView noButton,yesButton,questionText,nextButton;
+    TextView noButton,yesButton,questionText,nextButton,maleText,femaleText;
     ImageView maleImage,femaleImage;
     EditText formView;
 
@@ -33,6 +33,8 @@ public class UserDetails extends AppCompatActivity {
         femaleImage=findViewById(R.id.femaleImageButton);
         formView=findViewById(R.id.form);
         nextButton=findViewById(R.id.nextButton);
+        maleText=findViewById(R.id.maleText);
+        femaleText=findViewById(R.id.femaleText);
     }
 
     public void launchPremiumMenu(View view)
@@ -53,12 +55,16 @@ public class UserDetails extends AppCompatActivity {
                 questionText.setText("Gender");
                 maleImage.setVisibility(View.VISIBLE);
                 femaleImage.setVisibility(View.VISIBLE);
+                maleText.setVisibility(View.VISIBLE);
+                femaleText.setVisibility(View.VISIBLE);
                 break;
 
             case R.id.maleImageButton:
                 gender="MALE";
                 maleImage.setVisibility(View.INVISIBLE);
                 femaleImage.setVisibility(View.INVISIBLE);
+                maleText.setVisibility(View.INVISIBLE);
+                femaleText.setVisibility(View.INVISIBLE);
                 questionText.setText("How old are you?");
                 formView.setVisibility(View.VISIBLE);
                 showKeyBoard();
@@ -69,6 +75,8 @@ public class UserDetails extends AppCompatActivity {
                 gender="FEMALE";
                 maleImage.setVisibility(View.INVISIBLE);
                 femaleImage.setVisibility(View.INVISIBLE);
+                maleText.setVisibility(View.INVISIBLE);
+                femaleText.setVisibility(View.INVISIBLE);
                 questionText.setText("How old are you?");
                 nextButton.setVisibility(View.VISIBLE);
                 formView.setVisibility(View.VISIBLE);
