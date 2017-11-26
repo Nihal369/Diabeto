@@ -21,6 +21,10 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
+import com.google.gson.JsonSerializer;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -29,6 +33,8 @@ import java.util.Map;
 
 
 public class Predictor extends AppCompatActivity {
+
+    int percentage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +45,8 @@ public class Predictor extends AppCompatActivity {
         String url;
 
 
-        url = "20.20.3.215:5000/predict";
+        url = "http://27.250.14.42:5000/predict";
+        final float[] percent = new float[1];
         StringRequest postRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>()
                 {
@@ -47,6 +54,21 @@ public class Predictor extends AppCompatActivity {
                     public void onResponse(String response) {
                         // response
                         Log.i("NIHAL",response);
+                        JSONObject json=new JSONObject();
+                        try {
+                            json=new JSONObject(response);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            String value=json.getString("value");
+                            percent[0] =Float.parseFloat(value);
+                            setValue(percent[0]);
+                            Log.i("NIHAL",value);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
                     }
                 },
@@ -78,8 +100,18 @@ public class Predictor extends AppCompatActivity {
 
         queue.add(postRequest);
 
-        int percentage=75;
+    }
 
+    public void moveToPremiumMenu(View view)
+    {
+        Intent intent=new Intent(this,PremiumMenu.class);
+        startActivity(intent);
+    }
+
+    void setValue(float val)
+    {
+        val=val*100;
+        percentage=Math.round(val);
         CountAnimationTextView mCountAnimationTextView = findViewById(R.id.percentageText);
         mCountAnimationTextView
                 .setAnimationDuration(1500)
@@ -104,11 +136,5 @@ public class Predictor extends AppCompatActivity {
         if(percentage>50) {
             diabetesProgramCard.setVisibility(View.VISIBLE);
         }
-    }
-
-    public void moveToPremiumMenu(View view)
-    {
-        Intent intent=new Intent(this,PremiumMenu.class);
-        startActivity(intent);
     }
 }
