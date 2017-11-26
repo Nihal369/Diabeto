@@ -75,7 +75,14 @@ public class UserDetails extends AppCompatActivity {
                 switch (nextButtonStep)
                 {
                     case 0:
-                        age= Math.round(Float.parseFloat(formView.getText().toString()));
+                        try {
+                            age = Math.round(Float.parseFloat(formView.getText().toString()));
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
+
                         if(gender.equals("MALE"))
                         {
                             nextButtonStep+=2;
@@ -93,7 +100,13 @@ public class UserDetails extends AppCompatActivity {
                         break;
 
                     case 1:
-                        pregnancies=Math.round(Float.parseFloat(formView.getText().toString()));
+                        try {
+                            pregnancies = Math.round(Float.parseFloat(formView.getText().toString()));
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your current glucose level");
@@ -101,7 +114,13 @@ public class UserDetails extends AppCompatActivity {
                         break;
 
                     case 2:
-                        glucoseLevel=Math.round(Float.parseFloat(formView.getText().toString()));
+                        try {
+                            glucoseLevel = Math.round(Float.parseFloat(formView.getText().toString()));
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your current insulin level");
@@ -109,7 +128,13 @@ public class UserDetails extends AppCompatActivity {
                         break;
 
                     case 3:
-                        insulinLevel=Math.round(Float.parseFloat(formView.getText().toString()));
+                        try{
+                            insulinLevel = Math.round(Float.parseFloat(formView.getText().toString()));
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your Blood Pressure");
@@ -117,7 +142,13 @@ public class UserDetails extends AppCompatActivity {
                         break;
 
                     case 4:
-                        bloodPressure=Math.round(Float.parseFloat(formView.getText().toString()));
+                        try{
+                            bloodPressure = Math.round(Float.parseFloat(formView.getText().toString()));
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your Skin Thickness");
@@ -126,7 +157,13 @@ public class UserDetails extends AppCompatActivity {
 
 
                     case 5:
-                        skinThickness=Float.parseFloat(formView.getText().toString());
+                        try {
+                            skinThickness = Float.parseFloat(formView.getText().toString());
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your diabeteic pedigree funtion values");
@@ -134,7 +171,13 @@ public class UserDetails extends AppCompatActivity {
                         break;
 
                     case 6:
-                        diabeticPedigree=Float.parseFloat(formView.getText().toString());
+                        try {
+                            diabeticPedigree = Float.parseFloat(formView.getText().toString());
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
                         LocalDB.setAge(age);
                         LocalDB.setBloodPressure(bloodPressure);
                         LocalDB.setDiabeticPedigree(diabeticPedigree);
