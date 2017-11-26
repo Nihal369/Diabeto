@@ -1,8 +1,11 @@
 package com.amaro.diabeto;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.view.View;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -94,5 +97,16 @@ public class Predictor extends AppCompatActivity {
         pieChart.getLegend().setEnabled(false);
         pieChart.setHoleColor(Color.TRANSPARENT);
         pieChart.animateY(1500);
+
+        CardView diabetesProgramCard=findViewById(R.id.diabetesProgramCard);
+        if(percentage>50) {
+            diabetesProgramCard.setVisibility(View.VISIBLE);
+        }
+    }
+
+    public void moveToPremiumMenu(View view)
+    {
+        Intent intent=new Intent(this,PremiumMenu.class);
+        startActivity(intent);
     }
 }
