@@ -1,10 +1,12 @@
 package com.amaro.diabeto;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,6 +44,7 @@ public class UserDetails extends AppCompatActivity {
 
     public void moveToNext(View view)
     {
+
         switch (view.getId()) {
 
             case R.id.noButton:
@@ -57,8 +60,9 @@ public class UserDetails extends AppCompatActivity {
                 maleImage.setVisibility(View.INVISIBLE);
                 femaleImage.setVisibility(View.INVISIBLE);
                 questionText.setText("How old are you?");
-                nextButton.setVisibility(View.VISIBLE);
                 formView.setVisibility(View.VISIBLE);
+                showKeyBoard();
+                nextButton.setVisibility(View.VISIBLE);
                 break;
 
             case R.id.femaleImageButton:
@@ -68,7 +72,7 @@ public class UserDetails extends AppCompatActivity {
                 questionText.setText("How old are you?");
                 nextButton.setVisibility(View.VISIBLE);
                 formView.setVisibility(View.VISIBLE);
-                formView.setHint("Your age goes here");
+                showKeyBoard();
                 break;
 
             case R.id.nextButton:
@@ -88,14 +92,14 @@ public class UserDetails extends AppCompatActivity {
                             nextButtonStep+=2;
                             formView.setText("");
                             questionText.setText("Your current glucose level");
-                            formView.setHint("Your glucose level goes here");
+                            showKeyBoard();
                         }
                         else
                         {
                             nextButtonStep++;
                             formView.setText("");
                             questionText.setText("Number of pregnancies");
-                            formView.setHint("Your baby count goes here");
+                            showKeyBoard();
                         }
                         break;
 
@@ -110,7 +114,7 @@ public class UserDetails extends AppCompatActivity {
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your current glucose level");
-                        formView.setHint("Your glucose level goes here");
+                        showKeyBoard();
                         break;
 
                     case 2:
@@ -124,7 +128,7 @@ public class UserDetails extends AppCompatActivity {
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your current insulin level");
-                        formView.setHint("Your insulin level goes here");
+                        showKeyBoard();
                         break;
 
                     case 3:
@@ -138,7 +142,7 @@ public class UserDetails extends AppCompatActivity {
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your Blood Pressure");
-                        formView.setHint("Your blood pressure goes here");
+                        showKeyBoard();
                         break;
 
                     case 4:
@@ -152,7 +156,7 @@ public class UserDetails extends AppCompatActivity {
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your Skin Thickness");
-                        formView.setHint("Your skin thickness goes here");
+                        showKeyBoard();
                         break;
 
 
@@ -167,7 +171,7 @@ public class UserDetails extends AppCompatActivity {
                         nextButtonStep++;
                         formView.setText("");
                         questionText.setText("Your diabeteic pedigree funtion values");
-                        formView.setHint("Your diabetic pedigree goes here");
+                        showKeyBoard();
                         break;
 
                     case 6:
@@ -192,6 +196,13 @@ public class UserDetails extends AppCompatActivity {
                 }
 
         }
+    }
+
+    void showKeyBoard()
+    {
+        InputMethodManager imm = (InputMethodManager)getSystemService(
+                Context.INPUT_METHOD_SERVICE);
+        imm.showSoftInput(formView, 0);
     }
 
 }
